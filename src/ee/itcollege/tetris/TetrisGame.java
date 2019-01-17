@@ -5,6 +5,7 @@ import ee.itcollege.tetris.parts.Block;
 import ee.itcollege.tetris.parts.Figure;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -29,9 +30,28 @@ public class TetrisGame extends Application {
 				Block.SIZE * FIELD_WIDHT,
 				Block.SIZE * FIELD_HEIGHT);
 
+
+
 		scene.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-			System.out.println(event.getCode());
+			KeyCode pressed = event.getCode();
+			switch (pressed) {
+				case DOWN:
+					figure.move(0, 1);
+					break;
+				case LEFT:
+					figure.move(-1, 0);
+					break;
+				case RIGHT:
+					figure.move(1,0);
+					break;
+				case UP:
+					figure.rotateR();
+					break;
+			}
+
 		});
+
+
 
 		window.setOnCloseRequest(e -> System.exit(0));
 		window.setScene(scene);

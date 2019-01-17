@@ -9,8 +9,8 @@ public class FigureGenerator {
 
 		Figure figure = new Figure();
 
-		figure.add(new Block(2, 2));
 		figure.add(new Block(1, 2));
+		figure.add(new Block(2, 2));
 		figure.add(new Block(3, 2));
 		figure.add(new Block(2, 3));
 
